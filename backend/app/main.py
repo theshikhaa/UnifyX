@@ -4,6 +4,8 @@ import redis
 from sqlalchemy import create_engine, text
 from app.core.config import settings
 
+from app.api.sources import router as sources_router
+
 app = FastAPI(
     title=settings.PROJECT_NAME,
     openapi_url=f"{settings.API_V1_STR}/openapi.json"
@@ -17,6 +19,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include API Routers
+app.include_router(sources_router, prefix=settings.API_V1_STR)
+
 
 @app.get("/")
 def read_root():
