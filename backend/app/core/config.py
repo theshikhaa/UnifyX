@@ -22,8 +22,9 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str = os.getenv(
         "DATABASE_URL", 
-        "postgresql+psycopg2://postgres:postgres@localhost:5432/entity_resolution"
+        "sqlite:///./entity_resolution.db" if os.getenv("USE_SQLITE", "false").lower() == "true" else "postgresql+psycopg2://postgres:postgres@localhost:5432/entity_resolution"
     )
+
 
 
     # Redis
