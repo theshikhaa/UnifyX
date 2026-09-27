@@ -6,6 +6,7 @@ from app.core.config import settings
 
 from app.api.sources import router as sources_router
 from app.api.mappings import router as mappings_router
+from app.api.imports import router as imports_router
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -24,6 +25,8 @@ app.add_middleware(
 # Include API Routers
 app.include_router(sources_router, prefix=settings.API_V1_STR)
 app.include_router(mappings_router, prefix=settings.API_V1_STR)
+app.include_router(imports_router, prefix=settings.API_V1_STR)
+
 
 
 

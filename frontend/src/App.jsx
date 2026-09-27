@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Activity, Database, Server, Cpu, RefreshCw, CheckCircle2, AlertCircle, LayoutDashboard, GitMerge } from 'lucide-react';
+import { Activity, Database, Server, Cpu, RefreshCw, CheckCircle2, AlertCircle, LayoutDashboard, GitMerge, PlayCircle } from 'lucide-react';
 import SourcesManager from './components/SourcesManager';
 import FieldMappingManager from './components/FieldMappingManager';
+import ImportProcessingManager from './components/ImportProcessingManager';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('mappings'); // Default to Field Mapping for Phase 6
+  const [activeTab, setActiveTab] = useState('processing'); // Default to processing for Phase 8-10 demo
   const [health, setHealth] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -68,7 +69,15 @@ export default function App() {
               <GitMerge size={16} />
               Field Mapping
             </button>
+            <button
+              className={`nav-tab ${activeTab === 'processing' ? 'active' : ''}`}
+              onClick={() => setActiveTab('processing')}
+            >
+              <PlayCircle size={16} />
+              Ingestion & Processing
+            </button>
           </nav>
+
 
 
           <div className="status-pill">
@@ -82,8 +91,10 @@ export default function App() {
       <main className="container">
         {activeTab === 'sources' && <SourcesManager />}
         {activeTab === 'mappings' && <FieldMappingManager />}
+        {activeTab === 'processing' && <ImportProcessingManager />}
 
         {activeTab === 'dashboard' && (
+
 
           <div>
             <section className="hero-card">

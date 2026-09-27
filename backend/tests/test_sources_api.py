@@ -29,8 +29,9 @@ def test_source_upload_list_detail_delete():
 
     try:
         # 1. Prepare sample CSV content
-        csv_content = "customer_id,name,email_id,contact_no,address\nC-101,John Doe,john@gmail.com,9876543210,Mumbai\n"
-        file_tuple = ("customer_database.csv", csv_content, "text/csv")
+        csv_bytes = b"customer_id,name,email_id,contact_no,address\nC-101,John Doe,john@gmail.com,9876543210,Mumbai\n"
+        file_tuple = ("customer_database.csv", csv_bytes, "text/csv")
+
 
         # 2. Test POST /api/v1/sources (Upload CSV)
         response = client.post(
