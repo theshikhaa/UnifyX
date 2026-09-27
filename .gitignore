@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+*.sqlite3
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Environment
+.env
+!.env.example
+
+# Database / Storage uploads
+uploads/
+*.db
+*.dump
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
