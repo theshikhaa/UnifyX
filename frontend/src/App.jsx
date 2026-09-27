@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Activity, Database, Server, Cpu, RefreshCw, CheckCircle2, AlertCircle, LayoutDashboard } from 'lucide-react';
+import { Activity, Database, Server, Cpu, RefreshCw, CheckCircle2, AlertCircle, LayoutDashboard, GitMerge } from 'lucide-react';
 import SourcesManager from './components/SourcesManager';
+import FieldMappingManager from './components/FieldMappingManager';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('sources'); // Default to Data Sources for Phase 4
+  const [activeTab, setActiveTab] = useState('mappings'); // Default to Field Mapping for Phase 6
   const [health, setHealth] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -60,7 +61,15 @@ export default function App() {
               <Database size={16} />
               Data Sources
             </button>
+            <button
+              className={`nav-tab ${activeTab === 'mappings' ? 'active' : ''}`}
+              onClick={() => setActiveTab('mappings')}
+            >
+              <GitMerge size={16} />
+              Field Mapping
+            </button>
           </nav>
+
 
           <div className="status-pill">
             <span className={`pulse-dot ${isConnected ? 'connected' : 'disconnected'}`}></span>
@@ -72,8 +81,10 @@ export default function App() {
       {/* Main Content Container */}
       <main className="container">
         {activeTab === 'sources' && <SourcesManager />}
+        {activeTab === 'mappings' && <FieldMappingManager />}
 
         {activeTab === 'dashboard' && (
+
           <div>
             <section className="hero-card">
               <h1 className="hero-title">

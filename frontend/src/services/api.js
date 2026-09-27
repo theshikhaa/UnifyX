@@ -39,3 +39,19 @@ export const deleteSource = async (sourceId) => {
   const response = await client.delete(`/sources/${sourceId}`);
   return response.data;
 };
+
+// Field Mapping APIs
+export const getCanonicalFields = async () => {
+  const response = await client.get('/mappings/canonical-fields');
+  return response.data;
+};
+
+export const getSourceMappings = async (sourceId) => {
+  const response = await client.get(`/mappings/${sourceId}`);
+  return response.data;
+};
+
+export const approveMappings = async (sourceId, updates) => {
+  const response = await client.post(`/mappings/${sourceId}/approve`, updates);
+  return response.data;
+};

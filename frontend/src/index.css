@@ -551,14 +551,30 @@ body {
   font-size: 0.9rem;
 }
 
-pre {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 1rem;
+.success-box {
+  padding: 0.85rem 1.15rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: var(--radius-sm);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: #e5e7eb;
-  overflow-x: auto;
-  border: 1px solid var(--border-color);
-  margin-top: 1rem;
+  color: #6ee7b7;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 }
+
+
+.confidence-badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.sample-text {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
