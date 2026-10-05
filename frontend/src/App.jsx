@@ -52,7 +52,7 @@ export default function App() {
       <aside className="app-sidebar">
         {/* Brand Logo Header */}
         <div className="sidebar-brand">
-          <div className="brand-icon">UX</div>
+          <img src="/unifyx_logo.png" alt="UnifyX Logo" className="brand-logo-img" />
           <div>
             <div className="brand-title">UnifyX</div>
             <div className="brand-subtitle">Entity Resolution Platform</div>
