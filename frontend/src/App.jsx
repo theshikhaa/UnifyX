@@ -52,10 +52,10 @@ export default function App() {
       <aside className="app-sidebar">
         {/* Brand Logo Header */}
         <div className="sidebar-brand">
-          <div className="brand-icon">ER</div>
+          <div className="brand-icon">UX</div>
           <div>
-            <div className="brand-title">Entity Resolution</div>
-            <div className="brand-subtitle">Unified Repository</div>
+            <div className="brand-title">UnifyX</div>
+            <div className="brand-subtitle">Entity Resolution Platform</div>
           </div>
         </div>
 
@@ -135,7 +135,7 @@ export default function App() {
         {/* Top Header Bar */}
         <header className="main-topbar">
           <div className="topbar-breadcrumb">
-            <span style={{ color: 'var(--text-secondary)' }}>Resolution System</span>
+            <span style={{ color: 'var(--text-secondary)' }}>UnifyX Platform</span>
             <ChevronRight size={14} color="var(--text-muted)" />
             <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{tabTitles[activeTab]}</span>
           </div>

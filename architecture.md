@@ -1,4 +1,4 @@
-# Multi-Database Entity Resolution & Unified Data Repository — System Architecture
+# UnifyX — Multi-Database Entity Resolution & Unified Data Repository System Architecture
 
 ## 1. System Overview
 

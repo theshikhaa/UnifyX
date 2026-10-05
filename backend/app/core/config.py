@@ -3,7 +3,7 @@ from typing import List
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "Multi-Database Entity Resolution Platform"
+    PROJECT_NAME: str = "UnifyX - Multi-Database Entity Resolution Platform"
     API_V1_STR: str = "/api/v1"
     
     # CORS

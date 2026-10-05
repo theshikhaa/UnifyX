@@ -1,4 +1,4 @@
-# Multi-Database Entity Resolution & Unified Data Repository
+# UnifyX — Multi-Database Entity Resolution & Unified Data Repository
 
 A web-based platform for multi-database ingestion, schema inspection, automatic AI/rule-based field mapping, normalization, batch entity matching, and **Progressive Entity Enrichment**.
 
