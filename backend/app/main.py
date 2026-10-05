@@ -7,6 +7,16 @@ from app.core.config import settings
 from app.api.sources import router as sources_router
 from app.api.mappings import router as mappings_router
 from app.api.imports import router as imports_router
+from app.api.search import router as search_router
+from app.api.statistics import router as statistics_router
+from app.api.entities import router as entities_router
+from app.api.jobs import router as jobs_router
+
+from app.database.connection import Base, engine
+import app.models  # Import models to register metadata
+
+# Auto-create database tables on startup if they don't exist
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -16,7 +26,7 @@ app = FastAPI(
 # CORS setup for React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.BACKEND_CORS_ORIGINS,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -26,9 +36,10 @@ app.add_middleware(
 app.include_router(sources_router, prefix=settings.API_V1_STR)
 app.include_router(mappings_router, prefix=settings.API_V1_STR)
 app.include_router(imports_router, prefix=settings.API_V1_STR)
-
-
-
+app.include_router(search_router, prefix=settings.API_V1_STR)
+app.include_router(statistics_router, prefix=settings.API_V1_STR)
+app.include_router(entities_router, prefix=settings.API_V1_STR)
+app.include_router(jobs_router, prefix=settings.API_V1_STR)
 
 @app.get("/")
 def read_root():
